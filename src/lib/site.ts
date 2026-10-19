@@ -3,7 +3,7 @@ export const SITE = {
   title: 'Penumbra',
   author: 'Ilugbaro Olaoluwa',
   description:
-    'Essays on what is, what should be, and what should be done about what is.',
+    'Essays from the half-light: what is, what should be, and the distance between them.',
   footer: 'Set in Source Serif 4. No trackers.',
   portfolio: 'https://ilugbaroo.vercel.app/',
   locale: 'en',

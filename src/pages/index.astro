@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../lib/site';
 import { formatDate, machineDateString } from '../lib/date';
 
 const now = new Date();
@@ -15,8 +16,7 @@ const essays = (
 
 <BaseLayout>
   <p class="statement">
-    Essays on what is, what should be, and what should be done about what is.
-    Kept here, quietly, for as long as it lasts.
+    {SITE.description} Kept here, quietly, for as long as it lasts.
   </p>
 
   {
