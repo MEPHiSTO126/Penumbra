@@ -1,0 +1,47 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { formatDate, machineDateString } from '../lib/date';
+
+export async function getStaticPaths() {
+  const now = new Date();
+  const essays = await getCollection(
+    'essays',
+    ({ data }) => !data.draft && data.pubDate.getTime() <= now.getTime(),
+  );
+
+  return essays.map((essay) => ({
+    params: { slug: essay.id },
+    props: { essay },
+  }));
+}
+
+const { essay } = Astro.props;
+const { Content } = await render(essay);
+---
+
+<BaseLayout
+  title={essay.data.title}
+  description={essay.data.description}
+  published={essay.data.pubDate}
+>
+  <article>
+    <header class="essay-head">
+      <h1 class="essay-title">{essay.data.title}</h1>
+      <p class="essay-meta">
+        <time datetime={machineDateString(essay.data.pubDate)}>
+          {formatDate(essay.data.pubDate)}
+        </time>
+        {
+          essay.data.updatedDate && (
+            <span> · revised {formatDate(essay.data.updatedDate)}</span>
+          )
+        }
+      </p>
+    </header>
+
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,11 @@
+---
+title: 'What Should Be'
+description: 'On the uncertainty hidden inside every claim about how things ought to be.'
+pubDate: 2026-10-19
+---
+
+The questions of "what is, what should be and what should be done about what is". To begin, let's try to give some definition to the subject matters. First and foremost, "what is?" simply refers to what exists currently, or the current state of things. "What should be" refers to, supposedly, an expected state of things, or more clearly, a hypothetical most positive, current state of things. Before we dive into "what should be done about what is" let's take a deeper look at the statement "what should be". Perhaps, it's more of a question than a statement. Here, we can bring in the argument of "perspective". There are certain schools of thoughts, ideas or concepts that supposedly have a definitive "what should be". For example, should diseases exist at all? Arguably, the answer any human would give to this would be "No".
+
+However, this answer is completely based on the overwhelming presence of the negative effects caused by the existence of diseases throughout the course of humanity. In this light, it would also be absurd to imagine that the absence of diseases could possibly produce any negative outcome more than that which already is. But again, if I dare say, there is absolutely no proof for such a claim and it is absolutely unknown what effect the supposed "absence of diseases" would cause. Of course, it is expected that there should be a more positive outcome. However, the point of emphasis is the uncertainty.
+
+Imagine a hypothetical world entirely free of diseases. The only remaining causes of mortality would be conflict, starvation, accidents, and old age. Realistically, these factors alone are insufficient to naturally regulate the human population. The inevitable result would be an overwhelming demographic explosion. Consequently, the "ideal" disease-free world would likely devolve into a perpetual, desperate struggle among the populace for rapidly depleting fundamental resources. Ultimately, this would usher in an era of mass starvation and endless resource wars—a scenario that could reasonably be argued is far worse, and more systematically destructive, than the current reality of living alongside diseases.

@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { formatDate, machineDateString } from '../lib/date';
+
+const now = new Date();
+
+const essays = (
+  await getCollection(
+    'essays',
+    ({ data }) => !data.draft && data.pubDate.getTime() <= now.getTime(),
+  )
+).sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+
+<BaseLayout>
+  <p class="statement">
+    Essays on what is, what should be, and what should be done about what is.
+    Kept here, quietly, for as long as it lasts.
+  </p>
+
+  {
+    essays.length > 0 ? (
+      <ol class="contents">
+        {essays.map((essay) => (
+          <li>
+            <time datetime={machineDateString(essay.data.pubDate)}>
+              {formatDate(essay.data.pubDate)}
+            </time>
+            <div>
+              <a href={`/${essay.id}/`}>{essay.data.title}</a>
+              <span class="gloss">{essay.data.description}</span>
+            </div>
+          </li>
+        ))}
+      </ol>
+    ) : (
+      <p class="empty">Nothing published yet.</p>
+    )
+  }
+</BaseLayout>
