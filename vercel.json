@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/what-should-be",
+      "destination": "/the-absurdity-of-action",
+      "permanent": true
+    },
+    {
+      "source": "/what-should-be/",
+      "destination": "/the-absurdity-of-action",
+      "permanent": true
+    }
+  ]
+}

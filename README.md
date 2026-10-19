@@ -30,6 +30,15 @@ A claim that needs a source.[^1]
 [^1]: The source.
 ```
 
+## Renaming an essay
+
+The filename is the URL, so renaming the file breaks every link anyone has
+saved. If the piece has been published, add a permanent redirect first:
+`what-should-be` → `the-absurdity-of-action` lives in `vercel.json` exactly that
+way. Leave the old entry in place; it costs nothing.
+
+Renaming a *title* alone is free — the title comes from the frontmatter.
+
 ## Commands
 
 | Command           | Does                                        |

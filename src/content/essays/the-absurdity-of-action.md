@@ -1,5 +1,5 @@
 ---
-title: 'What Should Be'
+title: 'The Absurdity of Action'
 description: 'On the uncertainty hidden inside every claim about how things ought to be.'
 pubDate: 2026-10-19
 ---
