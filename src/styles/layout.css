@@ -180,6 +180,38 @@ a {
   color: var(--accent);
 }
 
+.colophon-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 1.1rem;
+}
+
+.theme {
+  display: inline-flex;
+  gap: 0.55rem;
+}
+
+.theme button {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  cursor: pointer;
+}
+
+.theme button:hover {
+  color: var(--ink);
+}
+
+.theme button[aria-pressed='true'] {
+  color: var(--ink);
+  text-decoration-color: var(--accent);
+}
+
 @media (max-width: 34rem) {
   .contents li {
     grid-template-columns: 1fr;
@@ -188,11 +220,5 @@ a {
 
   .contents time {
     font-size: 0.75rem;
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a {
-    transition: color 120ms ease, text-decoration-color 120ms ease;
   }
 }

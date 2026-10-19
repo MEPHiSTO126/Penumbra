@@ -38,7 +38,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
     --paper: #141310;
     --ink: #e6e0d3;
     --ink-soft: #9a9385;
@@ -46,6 +46,25 @@
     --accent: #c98b78;
     --wash: #1d1b17;
   }
+}
+
+/* A manual choice beats the system, and survives navigation because the
+   no-flash script in <head> sets data-theme before first paint. */
+:root[data-theme='dark'] {
+  --paper: #141310;
+  --ink: #e6e0d3;
+  --ink-soft: #9a9385;
+  --hair: #2e2a24;
+  --accent: #c98b78;
+  --wash: #1d1b17;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
 }
 
 *,

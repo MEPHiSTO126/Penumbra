@@ -21,6 +21,15 @@ const ogType = published ? 'article' : 'website';
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      // Runs before the stylesheet paints: a stored choice must not flash.
+      try {
+        var storedTheme = localStorage.getItem('theme');
+        if (storedTheme === 'light' || storedTheme === 'dark') {
+          document.documentElement.dataset.theme = storedTheme;
+        }
+      } catch (e) {}
+    </script>
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     {noindex ? (
@@ -70,8 +79,78 @@ const ogType = published ? 'article' : 'website';
 
       <footer class="colophon">
         <p>{SITE.footer}</p>
-        <p><a href="/">Index</a></p>
+        <p class="colophon-links">
+          <a href="/">Index</a>
+          <span class="theme" role="group" aria-label="Theme">
+            <button type="button" data-theme="system" aria-pressed="true">System</button>
+            <button type="button" data-theme="light" aria-pressed="false">Light</button>
+            <button type="button" data-theme="dark" aria-pressed="false">Dark</button>
+          </span>
+        </p>
       </footer>
     </div>
+
+    <script is:inline>
+      (function () {
+        var KEY = 'theme';
+        var root = document.documentElement;
+        var buttons = Array.prototype.slice.call(
+          document.querySelectorAll('.theme button'),
+        );
+        var metas = Array.prototype.slice.call(
+          document.querySelectorAll('meta[name="theme-color"]'),
+        );
+        var media = ['(prefers-color-scheme: light)', '(prefers-color-scheme: dark)'];
+        var paper = ['#f7f4ed', '#141310'];
+
+        function apply(choice) {
+          if (choice === 'light' || choice === 'dark') {
+            root.dataset.theme = choice;
+            try {
+              localStorage.setItem(KEY, choice);
+            } catch (e) {}
+          } else {
+            delete root.dataset.theme;
+            try {
+              localStorage.removeItem(KEY);
+            } catch (e) {}
+          }
+
+          var dark =
+            choice === 'system'
+              ? window.matchMedia('(prefers-color-scheme: dark)').matches
+              : choice === 'dark';
+
+          buttons.forEach(function (button) {
+            button.setAttribute(
+              'aria-pressed',
+              String(button.dataset.theme === choice),
+            );
+          });
+
+          metas.forEach(function (meta, i) {
+            meta.setAttribute('content', dark ? paper[1] : paper[0]);
+            if (choice === 'system') meta.setAttribute('media', media[i]);
+            else meta.removeAttribute('media');
+          });
+        }
+
+        buttons.forEach(function (button) {
+          button.addEventListener('click', function () {
+            apply(button.dataset.theme);
+          });
+        });
+
+        var stored = root.dataset.theme;
+        apply(stored === 'light' || stored === 'dark' ? stored : 'system');
+
+        // While "System" is chosen, follow the OS if it changes mid-session.
+        window
+          .matchMedia('(prefers-color-scheme: dark)')
+          .addEventListener('change', function () {
+            if (!root.dataset.theme) apply('system');
+          });
+      })();
+    </script>
   </body>
 </html>
