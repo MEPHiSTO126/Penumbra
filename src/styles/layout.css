@@ -161,6 +161,39 @@ a {
   font-variant-numeric: tabular-nums;
 }
 
+/* End of essay ----------------------------------------------------------- */
+
+.essay-foot {
+  margin-top: clamp(2.5rem, 6vw, 3.5rem);
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--hair);
+}
+
+.copy-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: var(--step--1);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+
+.copy-link:hover {
+  color: var(--ink);
+  text-decoration-color: var(--accent);
+}
+
+.copy-link.is-copied {
+  color: var(--ink);
+  text-decoration-color: var(--accent);
+}
+
 /* Colophon --------------------------------------------------------------- */
 
 .colophon {

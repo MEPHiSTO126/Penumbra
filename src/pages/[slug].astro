@@ -18,6 +18,7 @@ export async function getStaticPaths() {
 
 const { essay } = Astro.props;
 const { Content } = await render(essay);
+const permalink = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href;
 ---
 
 <BaseLayout
@@ -43,5 +44,59 @@ const { Content } = await render(essay);
     <div class="prose">
       <Content />
     </div>
+
+    <footer class="essay-foot">
+      <button type="button" class="copy-link" data-url={permalink}>Copy link</button>
+    </footer>
   </article>
 </BaseLayout>
+
+<script is:inline>
+  (function () {
+    var button = document.querySelector('.copy-link');
+    if (!button) return;
+
+    var label = button.textContent;
+    var timer;
+
+    function markCopied() {
+      button.textContent = 'Copied';
+      button.classList.add('is-copied');
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        button.textContent = label;
+        button.classList.remove('is-copied');
+      }, 2000);
+    }
+
+    function legacyCopy(url) {
+      var field = document.createElement('textarea');
+      field.value = url;
+      field.setAttribute('readonly', '');
+      field.style.position = 'absolute';
+      field.style.left = '-9999px';
+      document.body.appendChild(field);
+      field.select();
+      try {
+        document.execCommand('copy');
+      } catch (e) {}
+      document.body.removeChild(field);
+    }
+
+    button.addEventListener('click', function () {
+      var url = button.dataset.url;
+
+      // Feedback is immediate; the write itself is effectively instant when
+      // it succeeds. If it fails, the URL is still in the address bar.
+      markCopied();
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).catch(function () {
+          legacyCopy(url);
+        });
+      } else {
+        legacyCopy(url);
+      }
+    });
+  })();
+</script>

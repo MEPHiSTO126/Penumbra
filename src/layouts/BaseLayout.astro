@@ -32,6 +32,7 @@ const ogType = published ? 'article' : 'website';
     </script>
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    <meta name="author" content={SITE.author} />
     {noindex ? (
       <meta name="robots" content="noindex" />
     ) : (
@@ -79,14 +80,16 @@ const ogType = published ? 'article' : 'website';
 
       <footer class="colophon">
         <p>{SITE.footer}</p>
-        <p class="colophon-links">
+        <div class="colophon-links">
           <a href="/">Index</a>
+          <a href="/about/">About</a>
+          <a href={SITE.portfolio} rel="me">Portfolio</a>
           <span class="theme" role="group" aria-label="Theme">
             <button type="button" data-theme="system" aria-pressed="true">System</button>
             <button type="button" data-theme="light" aria-pressed="false">Light</button>
             <button type="button" data-theme="dark" aria-pressed="false">Dark</button>
           </span>
-        </p>
+        </div>
       </footer>
     </div>
 

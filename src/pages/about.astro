@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../lib/site';
+---
+
+<BaseLayout
+  title="About"
+  description={`About ${SITE.title}, and who writes it.`}
+>
+  <article>
+    <header class="essay-head">
+      <h1 class="essay-title">About</h1>
+    </header>
+
+    <div class="prose">
+      <p><em>{SITE.title}</em> is where I keep my essays.</p>
+
+      <p>
+        I write about the distance between what is and what should be: the gap
+        between an intention and its outcome, and the suspicion that some of our
+        ideals would not survive contact with the world they are meant to save.
+      </p>
+
+      <p>
+        I publish here rather than on a platform because a link should still work
+        in ten years, and because nothing on this page is trying to sell you
+        anything. There is no schedule, no feed, no comments, and no reason to
+        perform.
+      </p>
+
+      <p>
+        My name is {SITE.author}. I build things for the web; that work lives at <a
+          href={SITE.portfolio}
+          rel="me">ilugbaroo.vercel.app</a
+        >.
+      </p>
+
+      <p>
+        The site is static HTML, built with Astro and published as files. The
+        text is set in Source Serif 4, served from this domain rather than a font
+        CDN. There is no analytics. The only thing this site stores in your
+        browser is your choice of light or dark.
+      </p>
+    </div>
+  </article>
+</BaseLayout>

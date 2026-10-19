@@ -1,7 +1,10 @@
-# Dark Articles
+# Penumbra
 
-A static archive for long-form essays. No CMS, no database, no client-side
-JavaScript, no third-party requests.
+A static archive for long-form essays. No CMS, no database, no framework client
+code, no third-party requests.
+
+The only JavaScript on the site is inline: the theme choice (about 25 lines) and
+the copy-link button (about 30).
 
 ## Writing
 
@@ -47,8 +50,10 @@ URLs are derived from it; without it the build falls back to
 
 ## Files worth knowing
 
-- `src/lib/site.ts` — the site's name and footer line.
+- `src/lib/site.ts` — the name, author, footer line and portfolio URL.
 - `src/styles/tokens.css` — palette, measure, type sizes. Both themes live here.
 - `src/styles/prose.css` — the essay body and its print rules.
+- `src/pages/about.astro` — the colophon page. Written in prose markup, not
+  Markdown, so it stays a single small file.
 - `src/content.config.ts` — frontmatter schema. Required: `title`,
   `description`, `pubDate`.
