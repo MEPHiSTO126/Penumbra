@@ -252,6 +252,15 @@ a {
     min-height: 100dvh;
   }
 
+  /* Links first, the type note underneath. */
+  .colophon p {
+    order: 2;
+  }
+
+  .colophon-links {
+    order: 1;
+  }
+
   .contents li {
     grid-template-columns: 1fr;
     gap: 0.3rem;
