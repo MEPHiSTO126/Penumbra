@@ -246,6 +246,12 @@ a {
 }
 
 @media (max-width: 34rem) {
+  /* On a phone a short page should still put the colophon at the foot of the screen. */
+  .shell {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
   .contents li {
     grid-template-columns: 1fr;
     gap: 0.3rem;
