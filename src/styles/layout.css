@@ -47,7 +47,7 @@ main {
   text-transform: none;
 }
 
-/* The title passes through a band of half-light once as the page settles:
+/* The title passes through a band of half-light every twelve seconds:
    ink at either end, the palette's middle tone at the centre. A penumbra
    crossing the word, not a shine on it. */
 @supports ((background-clip: text) or (-webkit-background-clip: text)) {
@@ -65,7 +65,7 @@ main {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: penumbra-sweep 4s cubic-bezier(0.45, 0, 0.25, 1) 0.2s 1 both;
+    animation: penumbra-sweep 12s cubic-bezier(0.45, 0, 0.25, 1) 0.2s infinite both;
   }
 }
 
@@ -73,6 +73,13 @@ main {
   from {
     background-position: 100% 0;
   }
+
+  /* The pass takes a little over four seconds; the rest of the cycle is
+     stillness, so the word is only moving a third of the time. */
+  36% {
+    background-position: 0% 0;
+  }
+
   to {
     background-position: 0% 0;
   }
