@@ -3,7 +3,7 @@ export const SITE = {
   title: 'Penumbra',
   author: 'Ilugbaro Olaoluwa',
   description: 'Essays from the half-light, written while the river moved.',
-  footer: 'Set in Source Serif 4 and Petit Formal Script. Nothing here follows you out.',
+  footer: 'Set in Source Serif 4 and Spectral. Nothing here follows you out.',
   portfolio: 'https://ilugbaroo.vercel.app/',
   locale: 'en',
 } as const;

@@ -32,9 +32,9 @@ A claim that needs a source.[^1]
 
 ### A closing line
 
-One sentence per essay can be set in a pen hand, the way a letter is signed. It
-starts its own line inside the paragraph, so it reads as a coda rather than a
-change of font mid-sentence:
+One sentence per essay can be set in a second face, the way a letter is signed.
+It stays inside the paragraph but starts its own line, so it reads as a coda
+rather than a change of font mid-sentence:
 
 ```md
 Ultimately, this hypocrisy is a two-sided coin. <em class="closing">Hypocrisy is
@@ -42,7 +42,8 @@ the chain that confines humanity.</em>
 ```
 
 Keep it to the last sentence of the piece, and to one per essay; two hands in one
-page stop looking like a signature.
+page stop looking like a signature. The face is Spectral italic (`.prose
+em.closing` in `src/styles/prose.css`), served from `public/fonts`.
 
 ## Renaming an essay
 

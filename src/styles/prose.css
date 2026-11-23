@@ -59,19 +59,19 @@
   font-style: italic;
 }
 
-/* A closing sentence set in a pen hand, the way a letter is signed. The
-   emphasis element stays in the markup so the words remain emphasised if
-   the script never arrives. */
+/* A closing sentence set in another hand, the way a letter is signed. The
+   emphasis element stays in the markup so the words remain emphasised if the
+   second face never arrives. */
 .prose em.closing {
   display: block;
-  font-family: var(--font-script);
-  font-size: 1.26em;
-  font-style: normal;
+  font-family: var(--font-closing);
+  font-size: 1.08em;
+  font-style: italic;
   font-synthesis: none;
   letter-spacing: 0.005em;
-  /* A pen hand carries taller ascenders and deeper descenders than the
-     serif, so it gets a little more air than the roman lines above it. */
-  line-height: 1.4;
+  /* Slightly more air than the roman lines above it, so it reads as a coda
+     without the size having to say so. */
+  line-height: 1.55;
 }
 
 .prose blockquote {
