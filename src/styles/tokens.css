@@ -14,6 +14,15 @@
   font-display: swap;
 }
 
+/* One line of handwriting per essay, at most: the closing sentence. */
+@font-face {
+  font-family: 'Petit Formal Script';
+  src: url('/fonts/petit-formal-script-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Let the browser paint form controls, scrollbars and the canvas correctly
      before any CSS is parsed. */
@@ -21,6 +30,10 @@
 
   --font-serif: 'Source Serif', 'Iowan Old Style', 'Palatino Linotype', Palatino,
     Georgia, 'Times New Roman', serif;
+  /* Falls back to the body serif rather than the generic `cursive` hand, so a
+     missing file costs an italic flourish, not a flash of Comic Sans. */
+  --font-script: 'Petit Formal Script', 'Snell Roundhand', 'Apple Chancery', 'Source Serif',
+    Georgia, serif;
   --font-mono: ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Consolas, monospace;
 
   /* Warm paper and warm ink. Never #fff on #000. */
